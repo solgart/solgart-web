@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLGART | Artesanía en cemento y yeso</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;
+    font-family:Georgia,"Times New Roman",serif;
+    background:#fffafd;
+    color:#34445c;
+}
+header{
+    background:linear-gradient(135deg,#315b91,#527db5);
+    color:white;
+    text-align:center;
+    padding:18px 20px 65px;
+}
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:28px;
+    margin-bottom:20px;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    font-weight:bold;
+    letter-spacing:1.3px;
+}
+nav a:hover{color:#f6b6cf}
+.logo{
+    width:270px;
+    max-width:72%;
+    height:auto;
+    display:block;
+    margin:10px auto 10px;
+}
+.subtitulo{
+    font-size:27px;
+    color:#ffd6e5;
+    margin:8px 0;
+}
+.eslogan{
+    font-size:18px;
+    font-style:italic;
+    margin:8px 0 0;
+}
+section{
+    max-width:1150px;
+    margin:auto;
+    padding:75px 20px;
+    text-align:center;
+}
+h2{
+    color:#d96b98;
+    font-size:38px;
+    font-weight:normal;
+    margin:0 0 20px;
+}
+.descripcion{
+    font-size:19px;
+    line-height:1.8;
+}
+.colecciones{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:45px;
+}
+.coleccion{
+    background:white;
+    padding:35px 20px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(49,91,145,.12);
+    transition:.3s;
+}
+.coleccion:hover{transform:translateY(-7px)}
+.icono{font-size:42px;margin-bottom:15px}
+.coleccion h3{
+    color:#315b91;
+    font-size:22px;
+    font-weight:normal;
+}
+.galeria{
+    background:#eef5fc;
+    max-width:none;
+}
+.galeria-contenido{max-width:1150px;margin:auto}
+.fotos{
+    display:grid;
+    grid-template-columns:repeat(4, 180px);
+    justify-content:center;
+    gap:28px;
+    margin-top:40px;
+}
+
+.producto{
+    width:180px;
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 4px 14px rgba(49,91,145,.12);
+    cursor:pointer;
+    transition:transform .25s, box-shadow .25s;
+}
+
+.producto:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 22px rgba(49,91,145,.18);
+}
+
+.producto img{
+    display:block;
+    width:180px;
+    height:140px;
+    object-fit:cover;
+}
+
+.producto h3{
+    margin:0;
+    padding:10px 7px 12px;
+    color:#315b91;
+    font-size:15px;
+    font-weight:normal;
+    line-height:1.25;
+}
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(20,32,50,.88);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:30px;
+}
+.lightbox.abierto{display:flex}
+.lightbox img{
+    max-width:90vw;
+    max-height:85vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:12px;
+    box-shadow:0 15px 50px rgba(0,0,0,.45);
+}
+.lightbox-cerrar{
+    position:absolute;
+    top:18px;
+    right:28px;
+    color:white;
+    font-family:Arial,sans-serif;
+    font-size:42px;
+    line-height:1;
+    cursor:pointer;
+}
+.lightbox-titulo{
+    position:absolute;
+    bottom:18px;
+    left:20px;
+    right:20px;
+    text-align:center;
+    color:white;
+    font-family:Arial,sans-serif;
+    font-size:18px;
+}
+.nosotros{max-width:900px}
+.contacto{
+    background:#fff0f6;
+    max-width:none;
+}
+.contacto-contenido{max-width:800px;margin:auto}
+.boton{
+    display:inline-block;
+    background:#d96b98;
+    color:white;
+    padding:16px 38px;
+    border-radius:30px;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+    margin-top:20px;
+}
+.boton:hover{background:#315b91}
+footer{
+    background:#315b91;
+    color:white;
+    text-align:center;
+    padding:30px;
+    font-family:Arial,sans-serif;
+}
+footer p{margin:6px}
+@media(max-width:800px){
+    .colecciones{grid-template-columns:repeat(2,1fr)}
+    .fotos{grid-template-columns:repeat(2,1fr)}
+    .producto img{height:150px}
+}
+@media(max-width:550px){
+    .logo{width:210px}
+    .subtitulo{font-size:22px}
+    nav{gap:14px}
+    nav a{font-size:12px}
+    h2{font-size:30px}
+    .colecciones,.fotos{grid-template-columns:1fr}
+    .producto img{height:190px}
+}
+</style>
+</head>
+
+<body>
+
+<header id="inicio">
+
+<nav>
+<a href="#inicio">INICIO</a>
+<a href="#colecciones">COLECCIONES</a>
+<a href="#galeria">GALERÍA</a>
+<a href="#nosotros">SOBRE NOSOTROS</a>
+<a href="#contacto">CONTACTO</a>
+</nav>
+
+<img src="logo-solgart-transparente.png"
+     alt="Logotipo SOLGART"
+     class="logo">
+
+<p class="subtitulo">Artesanía en cemento y yeso</p>
+<p class="eslogan">Pequeñas formas, grandes emociones</p>
+
+</header>
+
+<section class="presentacion">
+<h2>Bienvenidos a SOLGART</h2>
+<p class="descripcion">
+Descubre nuestras creaciones artesanales, realizadas en cemento y yeso
+con dedicación, cuidado y pasión por los pequeños detalles.
+</p>
+</section>
+
+<section id="colecciones">
+<h2>Nuestras colecciones</h2>
+<p class="descripcion">Descubre nuestras creaciones artesanales.</p>
+
+<div class="colecciones">
+
+<div class="coleccion">
+<div class="icono">🌿</div>
+<h3>Macetas y jarrones</h3>
+<p>Piezas para llenar de vida cada rincón.</p>
+</div>
+
+<div class="coleccion">
+<div class="icono">✨</div>
+<h3>Figuras decorativas</h3>
+<p>Detalles únicos para decorar con personalidad.</p>
+</div>
+
+<div class="coleccion">
+<div class="icono">🌸</div>
+<h3>Bandejas y jaboneras</h3>
+<p>Diseños originales hechos a mano.</p>
+</div>
+
+<div class="coleccion">
+<div class="icono">🕯️</div>
+<h3>Velas y portavelas</h3>
+<p>Luz y decoración en una misma pieza.</p>
+</div>
+
+<div class="coleccion">
+<div class="icono">🐚</div>
+<h3>Conchas y estrellas</h3>
+<p>Inspiradas en el mar y la naturaleza.</p>
+</div>
+
+<div class="coleccion">
+<div class="icono">💗</div>
+<h3>Mini figuras</h3>
+<p>Pequeños detalles hechos a mano.</p>
+</div>
+
+</div>
+</section>
+
+<section id="galeria" class="galeria">
+<div class="galeria-contenido">
+<h2>Galería</h2>
+<p class="descripcion">Algunas de nuestras creaciones.</p>
+
+<div class="fotos">
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/macetas_1.jpg" alt="Maceta redonda mini"><h3>Maceta redonda mini</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/macetas_2.jpg" alt="Jarrón con bandeja"><h3>Jarrón con bandeja</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/figuras_1.jpg" alt="Calabaza grande"><h3>Calabaza grande</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/figuras_2.jpg" alt="Calabazas mini"><h3>Calabazas mini</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/bandejas_1.jpg" alt="Bandeja orgánica doble"><h3>Bandeja orgánica doble</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/bandejas_2.jpg" alt="Bandeja hoja"><h3>Bandeja hoja</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/velas_1.jpg" alt="Portavelas redondo"><h3>Portavelas redondo</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/velas_2.jpg" alt="Portavelas triple"><h3>Portavelas triple</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/jaboneras_1.jpg" alt="Bandejas flor surtidas"><h3>Bandejas flor surtidas</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/jaboneras_2.jpg" alt="Bandejas rectangulares"><h3>Bandejas rectangulares</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/conchas_1.jpg" alt="Estrella de mar"><h3>Estrella de mar</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/conchas_2.jpg" alt="Concha pequeña"><h3>Concha pequeña</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/mini_1.jpg" alt="Peces decorativos"><h3>Peces decorativos</h3></div>
+<div class="producto" onclick="abrirImagen(this)"><img src="productos/mini_2.jpg" alt="Figuras minis surtidas"><h3>Figuras minis surtidas</h3></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="nosotros" class="nosotros">
+<h2>Sobre nosotros</h2>
+<p class="descripcion">
+En SOLGART creemos en el valor de lo hecho a mano.
+Creamos nuestras piezas en cemento y yeso con mimo,
+creatividad y atención a cada detalle.
+Queremos que cada pieza encuentre su lugar en tu hogar
+y aporte algo especial.
+</p>
+</section>
+
+<section id="contacto" class="contacto">
+<div class="contacto-contenido">
+<h2>Contacta con nosotros</h2>
+<p class="descripcion">
+¿Te gusta alguna de nuestras piezas?<br>
+¿Quieres conocer nuestros productos?<br>
+Ponte en contacto con nosotros.
+</p>
+<a class="boton" href="#contacto">Escríbenos</a>
+</div>
+</section>
+
+<footer>
+<p>© 2026 SOLGART</p>
+<p>Artesanía en cemento y yeso</p>
+</footer>
+
+
+<div id="lightbox" class="lightbox" onclick="cerrarImagen(event)">
+    <span class="lightbox-cerrar" onclick="cerrarImagen()">×</span>
+    <img id="imagenGrande" src="" alt="">
+    <div id="tituloGrande" class="lightbox-titulo"></div>
+</div>
+
+<script>
+function abrirImagen(elemento) {
+    const imagen = elemento.querySelector("img");
+    const titulo = elemento.querySelector("h3");
+    document.getElementById("imagenGrande").src = imagen.src;
+    document.getElementById("imagenGrande").alt = imagen.alt;
+    document.getElementById("tituloGrande").textContent = titulo ? titulo.textContent : imagen.alt;
+    document.getElementById("lightbox").classList.add("abierto");
+}
+
+function cerrarImagen(evento) {
+    if (evento && evento.target && evento.target.id === "imagenGrande") return;
+    document.getElementById("lightbox").classList.remove("abierto");
+}
+
+document.addEventListener("keydown", function(evento) {
+    if (evento.key === "Escape") {
+        document.getElementById("lightbox").classList.remove("abierto");
+    }
+});
+</script>
+
+</body>
+</html>
